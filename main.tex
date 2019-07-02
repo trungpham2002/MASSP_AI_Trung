@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[utf8]{vietnam}
+
+\title{second day}
+\author{Phạm Quốc Trung }
+\date{02/07/2019}
+
+\begin{document}
+
+\maketitle
+
+\section{mô hình chung của machine learning}
+-f(x) = y \\
+- Đầu vào x được đặt trưng bởi những khong gian hàm số\\
+-đầu ra y (coodinate) được biểu diễn bằng phương trình tọa độ, từ đầu ra có  thể hình thành những khái niệm mới\\ 
+-Hàm f(x) được gọi là hàm đặc trưng (basic function) 
+- Magic model: \\
+*lấy chiết xuất đặc trưng từ 2 tập input và output  rồi đưa đến một không gian có thể so sánh 2 hàm rồi chọn ra output phù hợp \\
+- Xét ham f= (f1,f2,f3,...) \\
+thì X =y1*x1+y2*x2 +y3*x3+... \\
+-> chỉ ra số phần của xi trong X\\
+\section{Principal Component Analysis}
+ X = x0 + a1*x1 + a2*x2 + ,,, ak*xK\\
+ y = x0 + a21*x1 + a22*x2+...a2k*xk \\
+ x0 là mean \\ 
+khi đó tọa độ \\
+X= (a_{1},a_{2},a_{3},...) \\
+Y = (a_{2 1},a_{2 2},a_{2 3} ,...)\\ 
+bài toán tính  p(X,Y) \\
+Cách 1: \\
+tính < X,Y > : inner product = -Tổng: $\sqrt{ $\sum_{ij}^n(Xij*Yij)$ } \\
+cách 2: \\
+tính |X-Y| = \Delta x = $\sqrt{ $\sum_{ij}^n(Xij-9Yij)$ } \\ 
+\section{Linear regression}
+ -Mục tiêu:\\ Thường được dùng để gải những bài toán có output là 1 số thực \\
+ Lấy ví dụ về định giá một ngôi nhà với độ lớn x_{1} , độ mới x_{2} và có hiện trạng hư hỏng x_{3}\\
+ - Ta nhận xét với x_{1} , x_{2} càng lớn va x_{3} càng thấp thì giá của căn nhà càng cao \Rightarrow  có dạng chung   \\ 
+ Ta có 
+  y\approx f(x) = W_{1}*x_{1}+W_{2}*x_{2}+w_{3}*x_{3}+ w_{0} \\
+  Mục tiêu là tìm ra W = [W_0,w_{1},w_{2},w_{3}] tối ưu \\
+ \subsection{Công thức toán}
+-Cho W = [W_0,w_{1},w_{2},w_{3}]^T (cột)\\
+-Cho X= [1,x_{1},x_{2},x_{3}] (hàng)  \\
+thì y \approx \bar{x}*W = \hat{y}  \\
+*Lưu ý : Bài toán Linear regression có thể giải được bằng phương pháp đạo hàm \\ 
+\section{Logistic regression}
+- là  mô hình có đầu ra là dạng xác suất  và thích hợp cho việc giải các bài toán classification 
+-Mô hình đầu ra dự đoán Logistic regression : \\
+-f(x) = \theta((w^t)*x) \\
+Hàm sigmoid được sự dụng để làm basis function  : 
+ f(s) = \frac{1}{1 + e^{-s}} \triangleq \sigma(s)
+\end{document} 
+\section {Softmax regression} \\ 
+ -Cho ví dụ là bài toán  xác định ảnh với input là ảnh và output là nhóm mà ảnh được phân vào được biểu diễn dưới dạng vecto xác suất \\
+ ví dụ như : \\
+ \begin{bmatrix}
+1
+\\
+0 
+\\ 
+0
+\end{bmatrix}
+\begin{bmatrix}
+0
+\\
+0 
+\\ 
+1
+\end{bmatrix}
+..
+ -Điều kiện của vecto xác suất :\\
+ \left\{\begin{matrix}
+0\leq p_{i} \leq 1 
+\\ 
+\sum_{n}^{i=1} p_{i} = 1 
+\end{matrix}\right.
+\\
+Để giải bài toán phân loại ảnh trên ta sẽ tìm basic function g_{1} để chuyển dữ liệu đầu vào thành 1 vecto xác suát \\
+Ở đây ta có thể dùng softmax regression với công thức " \\
+a_i = \frac{\exp(z_i)}{\sum_{j=1}^C \exp(z_j)}
+\\
+sau đó có thể dùng cross entropy để so sánh với vecto xác suất của nhóm ảnh 
+với công thức : \\
+-\sum_{}^{i=1} p_{0} log P_{\hat{y}}^{i}
+\end{document}
